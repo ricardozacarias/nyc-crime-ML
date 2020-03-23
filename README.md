@@ -1,72 +1,70 @@
-<img src="https://bit.ly/2VnXWr2" alt="Ironhack Logo" width="100"/>
+# Forecasting and spatio-temporal clustering of criminal activity in NYC
 
-# Title of My Project
-*[Your Name]*
+*Ricardo Zacarias*
 
-*[Your Cohort, Campus & Date]*
 
-## Content
-- [Project Description](#project-description)
-- [Hypotheses / Questions](#hypotheses-questions)
-- [Dataset](#dataset)
-- [Cleaning](#cleaning)
-- [Analysis](#analysis)
-- [Model Training and Evaluation](#model-training-and-evaluation)
-- [Conclusion](#conclusion)
-- [Future Work](#future-work)
-- [Workflow](#workflow)
-- [Organization](#organization)
+
+# Content
+- [Abstract](#Abstract)
+
+- [Datasets](#Datasets)
+
+- [Introduction](#Introduction)
+
+- [Metrics](#Metrics)
+
+- [Results](#Results)
+
 - [Links](#links)
 
-## Project Description
-Write a short description of your project: 3-5 sentences about what your project is about, why you chose this topic (if relevant), and what you are trying to show.
+  
 
-## Hypotheses / Questions
-* What data/business/research/personal question you would like to answer?
-* What is the context for the question and the possible scientific or business application?
-* What are the hypotheses you would like to test in order to answer your question?  
-Frame your hypothesis with statistical/data languages (i.e. define Null and Alternative Hypothesis). You can use formulas if you want but that is not required.
+# Abstract
+Statistical and probabilistic quantification of metro systems in different cities. Created an algorithm to estimate three separate geographical metrics that evaluate the coverage and availability of points of interest within a city:
 
-## Dataset
-* Where did you get your data? If you downloaded a dataset (either public or private), describe where you downloaded it and include the command to load the dataset.
-* Did you build your own datset? If so, did you use an API or a web scraper? PRovide the relevant scripts in your repo.
-* For all types of datasets, provide a description of the size, complexity, and data types included in your dataset, as well as a schema of the tables if necessary.
-* If the question cannot be answered with the available data, why not? What data would you need to answer it better?
+1.  Average distance to the closest station from random points within the city the limits;
+2. The number of metro stations within a 1km radius of random points;
+3. Percentage of metropolitan area covered by metro stations.
 
-## Cleaning
-Describe your full process of data wrangling and cleaning. Document why you chose to fill missing values, extract outliers, or create the variables you did as well as your reasoning behind the process.
-
-## Analysis
-* Overview the general steps you went through to analyze your data in order to test your hypothesis.
-* Document each step of your data exploration and analysis.
-* Include charts to demonstrate the effect of your work.
-* If you used Machine Learning in your final project, describe your feature selection process.
-
-## Model Training and Evaluation
-*Include this section only if you chose to include ML in your project.*
-* Describe how you trained your model, the results you obtained, and how you evaluated those results.
-
-## Conclusion
-* Summarize your results. What do they mean?
-* What can you say about your hypotheses?
-* Interpret your findings in terms of the questions you try to answer.
-
-## Future Work
-Address any questions you were unable to answer, or any next steps or future extensions to your project.
-
-## Workflow
-Outline the workflow you used in your project. What were the steps?
-How did you test the accuracy of your analysis and/or machine learning algorithm?
-
-## Organization
-How did you organize your work? Did you use any tools like a trello or kanban board?
-
-What does your repository look like? Explain your folder and file structure.
-
-## Links
-Include links to your repository, slides and trello/kanban board. Feel free to include any other links associated with your project.
+Subway systems were subsequently ranked based on these metrics and the difference between them was tested statistically. The location intelligence applications of this project are exemplified by the use of geolocation data for the Portuguese bakery  *A Padaria Portuguesa*. Furthermore, I demonstrate that demographical data can be easily layered on the algorithm. 
 
 
-[Repository](https://github.com/)  
-[Slides](https://slides.com/)  
-[Trello](https://trello.com/en)  
+
+# Datasets
+The data required for this project was foraged from many different corners of the internet. Here are their locations.
+
+[Lisbon Metro Coordinates](http://dados.cm-lisboa.pt/dataset/estacoes-de-metro) 
+
+[Lisbon Administrative Divisions (Freguesias)](http://geodados.cm-lisboa.pt/datasets/freguesias-2012-1)
+
+[NYC Subway Stations](https://data.cityofnewyork.us/Transportation/Subway-Stations/arq3-7z49)
+
+[NYC Neighborhood Tabulation Areas](https://data.cityofnewyork.us/City-Government/Neighborhood-Tabulation-Areas-NTA-/cpf4-rkhq)
+
+[Paris Arrondissements](https://www.data.gouv.fr/en/datasets/arrondissements-1/)
+
+[Paris Metro Coordinates](https://www.data.gouv.fr/en/datasets/positions-geographiques-des-stations-du-reseau-ratp-ratp/)
+
+[London Statistical Boundaries](https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london)
+
+[London Underground Locations](https://data.london.gov.uk/dataset/tfl-station-locations)
+
+[Administrative Divisions of Moscow](https://www.kaggle.com/jtremoureux/administrative-divisions-of-moscow)
+
+[Moscow Metro Stations](https://en.wikipedia.org/wiki/List_of_Moscow_Metro_stations) - *scraped from Wikipedia.*
+
+# Introduction
+
+
+
+# Metrics
+
+1. 
+
+
+# Results
+
+
+
+# Location Intelligence
+
