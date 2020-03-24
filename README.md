@@ -20,15 +20,7 @@
   
 
 # Abstract
-Statistical and probabilistic quantification of metro systems in different cities. Created an algorithm to estimate three separate geographical metrics that evaluate the coverage and availability of points of interest within a city:
-
-1.  Average distance to the closest station from random points within the city the limits;
-2. The number of metro stations within a 1km radius of random points;
-3. Percentage of metropolitan area covered by metro stations.
-
-Subway systems were subsequently ranked based on these metrics and the difference between them was tested statistically. The location intelligence applications of this project are exemplified by the use of geolocation data for the Portuguese bakery  *A Padaria Portuguesa*. Furthermore, I demonstrate that demographical data can be easily layered on the algorithm. 
-
-
+Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York  and within each of the 77 precincts in the city.
 
 # Datasets
 In this project I used publicly available data from NYC's data portal and a few other sources.
@@ -58,6 +50,8 @@ Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sd
 <img src="figures/nyc_ARIMA.png" width="600"/>
 
 The ARIMA analysis yielded a mean absolute error of 224. While it looks promising, this is not how police departments work in any city. There is not one single station that is responsible for all of this crime. 
+
+
 
 
 # Results
