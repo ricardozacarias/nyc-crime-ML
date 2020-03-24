@@ -49,7 +49,7 @@ Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sd
 
 
 
-<img src="figures/nyc_ARIMA.png" width="300"/>
+<img align="center" src="figures/nyc_ARIMA.png" width="400"/>
 
 
 
