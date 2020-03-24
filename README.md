@@ -45,9 +45,9 @@ The data required for this project was foraged from many different corners of th
 
 The following two charts show the evolution of the budget for the NYPD and crime rates in the city for the past 20 years. The amount of money spent on policing has nearly doubled in that period and, while crime has also seen a decline, it has remained fairly constant over the last ~10 years or so. 
 
-<img src="figures/nypd_budget.png" width="400"/>
+<img src="figures/nypd_budget.png" width="300"/>
 
-<img src="figures/nypd_crime_rates.png" width="400"/>
+<img src="figures/nypd_crime_rates.png" width="300"/>
 
 # Metrics
 
