@@ -65,7 +65,7 @@ The ARIMA analysis yielded a mean absolute error of 224. While it looks promisin
 
 
 
-This map summarizes the forecast by averaging the number of crimes in each precinct for 2017 and 2018. So now we know how much crime is gonna happen in each precinct, but this is still a very rough prediction.
+This map summarizes the forecast by averaging the number of crimes in each precinct for 2017 and 2018. So now we know how much crime is gonna happen in each precinct, but this is still a very rough prediction and far from prevention.
 
 
 
