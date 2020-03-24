@@ -49,13 +49,13 @@ Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sd
 
 
 
-<img src="figures/nyc_ARIMA.png" width="600"/>
+<img src="figures/nyc_ARIMA.png" width="300"/>
 
 
 
 The ARIMA analysis yielded a mean absolute error of 224. While it looks promising, this is not how police departments work in any city. There is not one single station that is responsible for all of this crime. In fact, NYC is divided into 77 police departments (called *precincts*), so I repeated this analysis for each individual precinct.
 
-<img src="figures/arimap2.png" width="700"/>
+<img src="figures/arimap2.png" width="400"/>
 
 
 
