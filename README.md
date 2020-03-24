@@ -33,29 +33,21 @@ Subway systems were subsequently ranked based on these metrics and the differenc
 # Datasets
 The data required for this project was foraged from many different corners of the internet. Here are their locations.
 
-[Lisbon Metro Coordinates](http://dados.cm-lisboa.pt/dataset/estacoes-de-metro) 
+[NYPD Budget 2000-2019](https://ibo.nyc.ny.us/RevenueSpending/nypd.html)
 
-[Lisbon Administrative Divisions (Freguesias)](http://geodados.cm-lisboa.pt/datasets/freguesias-2012-1)
+[NYC Historical Crime Rates 2000-2019](http://www.disastercenter.com/crime/nycrime.htm)
 
-[NYC Subway Stations](https://data.cityofnewyork.us/Transportation/Subway-Stations/arq3-7z49)
+[NYPD Complaint Data Historic](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i)
 
-[NYC Neighborhood Tabulation Areas](https://data.cityofnewyork.us/City-Government/Neighborhood-Tabulation-Areas-NTA-/cpf4-rkhq)
 
-[Paris Arrondissements](https://www.data.gouv.fr/en/datasets/arrondissements-1/)
-
-[Paris Metro Coordinates](https://www.data.gouv.fr/en/datasets/positions-geographiques-des-stations-du-reseau-ratp-ratp/)
-
-[London Statistical Boundaries](https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london)
-
-[London Underground Locations](https://data.london.gov.uk/dataset/tfl-station-locations)
-
-[Administrative Divisions of Moscow](https://www.kaggle.com/jtremoureux/administrative-divisions-of-moscow)
-
-[Moscow Metro Stations](https://en.wikipedia.org/wiki/List_of_Moscow_Metro_stations) - *scraped from Wikipedia.*
 
 # Introduction
 
+The following two charts show the evolution of the budget for the NYPD and crime rates in the city for the past 20 years. The amount of money spent on policing has nearly doubled in that period and, while crime has also seen a decline, it has remained fairly constant over the last ~10 years or so. 
 
+<img src="figures/nypd_budget.png" width="400"/>
+
+<img src="figures/nypd_crime_rates.png" width="400"/>
 
 # Metrics
 
