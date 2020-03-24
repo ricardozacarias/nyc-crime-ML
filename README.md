@@ -1,4 +1,4 @@
-# Forecasting and spatio-temporal clustering of criminal activity in NYC
+# Forecasting and spatio-temporal clustering of crime in NYC
 
 *Ricardo Zacarias*
 
@@ -20,7 +20,7 @@
   
 
 # Abstract
-Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York  and within each of the 77 precincts in the city.
+Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York   City. 
 
 # Datasets
 In this project I used publicly available data from NYC's data portal and a few other sources.
@@ -45,12 +45,21 @@ Even for the initial decrease in crime rate, some studies suggest that [mental h
 
 # Forecasting crime rates in NYC
 
-Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=crime+seasonality&btnG=) activity and has been studied extensively. The first step in my analysis was to see if I could forecast the total number of crimes each month. To accomplish this I used an ARIMA model including the first 10 years of the data set as training to predict the last two years (2017-18). 
+Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=crime+seasonality&btnG=) activity and has been studied extensively. The first step in my analysis was to see if I could forecast the total number of crimes each month. To accomplish this I used an ARIMA model including the first 10 years of the data set (2007-2016) as training to predict the last two years (2017-18). 
+
+
 
 <img src="figures/nyc_ARIMA.png" width="600"/>
 
-The ARIMA analysis yielded a mean absolute error of 224. While it looks promising, this is not how police departments work in any city. There is not one single station that is responsible for all of this crime. 
 
+
+The ARIMA analysis yielded a mean absolute error of 224. While it looks promising, this is not how police departments work in any city. There is not one single station that is responsible for all of this crime. In fact, NYC is divided into 77 police departments (called *precincts*), so I repeated this analysis for each individual precinct.
+
+<img src="figures/arimap2.png" width="700"/>
+
+
+
+This map summarizes the forecast by averaging the number of crimes in each precinct for 2017 and 2018. So now we know how much crime is gonna happen in each precinct, but this is still a very rough prediction.
 
 
 
