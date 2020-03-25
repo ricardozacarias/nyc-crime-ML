@@ -13,14 +13,16 @@
 
 - [Forecasting crime rates in NYC](#forecasting-crime-rates-in-nyc)
 
-- [Results](#Results)
+- [Spatio-temporal clustering](#spatio-temporal-clustering)
 
 - [Links](#links)
 
   
 
 # Abstract
-Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York   City. 
+Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York   City. Next, I applied unsupervised spatio-temporal clustering to identify hotspots of criminal activity. Clusters were defined geographically and 
+
+
 
 # Datasets
 In this project I used publicly available data from NYC's data portal and a few other sources.
@@ -77,7 +79,7 @@ So now we know how much crime is gonna happen in each precinct, but this is stil
 
 
 
-# Results
+# Spatio-temporal clustering
 
 
 
