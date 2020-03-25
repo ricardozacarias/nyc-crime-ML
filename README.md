@@ -81,5 +81,15 @@ So now we know how much crime is gonna happen in each precinct, but this is stil
 
 # Spatio-temporal clustering
 
-In order to make more specific predictions about crime
+In order to make more specific predictions about crime I decided to focus the analysis on only two types of crimes: **burglary** and **robbery**. I chose these two because they are both very common but they are also very different in nature.
 
+1. *Burglary*: non-violent crime that requires some preparation and tools.
+2. *Robbery*: violent crime that mostly requires opportunity.
+
+Having selected these two different types of crimes I designed an algorithm that goes as follows.
+
+This is an example of one precinct (61st):
+
+<p align="center">
+  <img src="figures/precinct.png" width="500"/>
+</p>
