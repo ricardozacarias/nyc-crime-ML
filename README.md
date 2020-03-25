@@ -15,7 +15,7 @@
 
 - [Spatio-temporal clustering](#spatio-temporal-clustering)
 
-- [Links](#links)
+- 
 
   
 
@@ -81,7 +81,5 @@ So now we know how much crime is gonna happen in each precinct, but this is stil
 
 # Spatio-temporal clustering
 
-
-
-# Location Intelligence
+In order to make more specific predictions about crime
 
