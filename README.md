@@ -11,7 +11,7 @@
 
 - [Introduction](#Introduction)
 
-- [Metrics](#Metrics)
+- [Forecasting crime rates in NYC](#forecasting-crime-rates-in-nyc)
 
 - [Results](#Results)
 
@@ -45,7 +45,14 @@ Even for the initial decrease in crime rate, some studies suggest that [mental h
 
 # Forecasting crime rates in NYC
 
-Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=crime+seasonality&btnG=) activity and has been studied extensively. The first step in my analysis was to see if I could forecast the total number of crimes each month. To accomplish this I used an ARIMA model including the first 10 years of the data set (2007-2016) as training to predict the last two years (2017-18). 
+Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=crime+seasonality&btnG=) activity and has been studied extensively. The first step in my analysis was to see if I could forecast the total number of crimes each month. To accomplish this I used an ARIMA model including the first 10 years of the data set (2007-2016) as training to predict the last two years (2017-18). In the interest of saving memory, in this analysis I only included the following crimes:
+
+| Violent Crime  | Property Crime   |
+| -------------- | ---------------- |
+| Felony Assault | Burglary         |
+| Robbery        | Arson            |
+| Rape           | Grand Larceny    |
+| -              | Grand Theft Auto |
 
 
 
@@ -55,7 +62,7 @@ Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sd
 
 
 
-The ARIMA analysis yielded a mean absolute error of 224. While it looks promising, this is not how police departments work in any city. There is not one single station that is responsible for all of this crime. In fact, NYC is divided into 77 police departments (called *precincts*), so I repeated this analysis for each individual precinct.
+The ARIMA analysis yielded a mean absolute error of 224.7. While it looks promising, this is not how police departments work in any city. There is not one single station that is responsible for all of this crime. In fact, NYC is divided into 77 police departments (called *precincts*), so I repeated this analysis for each individual precinct.
 
 <p align="center">
   <img src="figures/arimap2.png" width="500"/>
@@ -64,8 +71,9 @@ The ARIMA analysis yielded a mean absolute error of 224. While it looks promisin
 
 
 
+This map summarizes the forecast by averaging the number of crimes in each precinct for 2017 and 2018. The raw monthly forecast for this period in each precinct can be found in this [file](https://github.com/ricardozacarias/nyc-crime-ML/blob/master/processed_csv/arima_results.csv). 
 
-This map summarizes the forecast by averaging the number of crimes in each precinct for 2017 and 2018. So now we know how much crime is gonna happen in each precinct, but this is still a very rough prediction and far from prevention.
+So now we know how much crime is gonna happen in each precinct, but this is still a very rough prediction and very much far from actionable information that could be used in prevention.
 
 
 
