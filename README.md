@@ -15,12 +15,12 @@
 
 - [Spatio-temporal clustering](#spatio-temporal-clustering)
 
-- 
+- [Model performance](#model-performance)
 
   
 
 # Abstract
-Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York   City. Next, I applied unsupervised spatio-temporal clustering to identify hotspots of criminal activity. Clusters were defined geographically and 
+Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York   City. Next, I applied an unsupervised clustering algorithm to identify hotspots of criminal activity. Clusters were defined geographically and temporally 
 
 
 
@@ -49,14 +49,11 @@ Even for the initial decrease in crime rate, some studies suggest that [mental h
 
 Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=crime+seasonality&btnG=) activity and has been studied extensively. The first step in my analysis was to see if I could forecast the total number of crimes each month. To accomplish this I used an ARIMA model including the first 10 years of the data set (2007-2016) as training to predict the last two years (2017-18). In the interest of saving memory, in this analysis I only included the following crimes:
 
-| Violent Crime  | Property Crime   |
-| -------------- | ---------------- |
-| Felony Assault | Burglary         |
-| Robbery        | Arson            |
-| Rape           | Grand Larceny    |
-| -              | Grand Theft Auto |
+**Violent crime:** felony assault and robbery.
 
+**Property crime:** burglary, grand larceny and grand theft auto.
 
+These were the forecasting results:
 
 <p align="center">
   <img src="figures/nyc_ARIMA.png" width="400"/>
@@ -64,13 +61,11 @@ Crime is a [notoriously seasonal](https://scholar.google.com/scholar?hl=en&as_sd
 
 
 
-The ARIMA analysis yielded a mean absolute error of 224.7. While it looks promising, this is not how police departments work in any city. There is not one single station that is responsible for all of this crime. In fact, NYC is divided into 77 police departments (called *precincts*), so I repeated this analysis for each individual precinct.
+The ARIMA analysis yielded a mean absolute error of 224.7 for predictions in the order of ~8k. While it looks promising, this is not how police departments work in any city. There is not one single station that is responsible for all of this crime. In fact, NYC is divided into 77 police departments (called *precincts*), so I repeated this analysis for each individual precinct.
 
 <p align="center">
   <img src="figures/arimap2.png" width="500"/>
 </p>
-
-
 
 
 This map summarizes the forecast by averaging the number of crimes in each precinct for 2017 and 2018. The raw monthly forecast for this period in each precinct can be found in this [file](https://github.com/ricardozacarias/nyc-crime-ML/blob/master/processed_csv/arima_results.csv). 
@@ -88,7 +83,7 @@ In order to make more specific predictions about crime I decided to focus the an
 
 Having selected these two different types of crimes I designed an algorithm that goes as follows.
 
-This is an example of one precinct (61st). I will try to spatio-temporally predict crimes for January 2017 using the two years before as training (Jan 2015 - Dec 2016)
+To start, I will take only one precinct as an example (61st). I will try to spatio-temporally predict crimes for January 2017 using the two years before as training (Jan 2015 - Dec 2016)
 
 <p align="center">
   <img src="figures/precinct.png" width="350"/>
@@ -117,3 +112,36 @@ This is an example of one precinct (61st). I will try to spatio-temporally predi
   <img src="figures/scoring.gif" width="600"/>
 </p>
 
+
+
+# Model performance
+
+The figures above represent the analysis for one precinct and predicting one month only. To more accurately evaluate this model, I generalized the algorithm and ran it for the top 5 most dangerous precincts, making monthly predictions for a period of 2 years (2017 and 2018). 
+
+To have some form of reference for the accuracy of the model, I also repeated this entire method but instead **generating random clusters**. This way, we can at least compare how our clustering algorithm performs against just randomly subdividing a region and creating random patrol schedules.
+
+
+
+### Burglaries
+
+<p align="center">
+  <img src="figures/the_real_burglar.png" width="150"/>
+  <img src="figures/burglary_final.png" width="500"/>
+</p>
+
+### Robberies
+
+<p align="center">
+  <img src="figures/robbery-bandit-pngrepo-com.png" width="150"/>
+  <img src="figures/robbery_final.png" width="500"/>
+</p>
+
+Regarding burglaries, the global accuracy for **our algorithm was 65%** while it was **37.6% for a random cluster method**. The algorithm performs consistently better than random for the whole testing period. For robberies however, we observe a completely different pattern. In fact, the **random method scores (27.6%)** slightly higher than **our clustering algorithm (23.2%)**.
+
+A possible explanation for this result could be that our clustering is underfitting. After all, we are only introducing two features into the algorithm. Another possibility is this result could be a reflection that crimes of opportunity, such as robberies, are inherently more random and thus much harder to predict.
+
+
+
+# Conclusions
+
+- 
