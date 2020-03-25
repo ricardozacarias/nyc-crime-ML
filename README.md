@@ -17,6 +17,10 @@
 
 - [Model performance](#model-performance)
 
+- [Conclusions](#conclusions)
+
+- [Future steps](#future-steps-and-possible-applications)
+
   
 
 # Abstract
@@ -39,9 +43,12 @@ In this project I used publicly available data from NYC's data portal and a few 
 
 The following two charts show the evolution of the budget for the NYPD and crime rates in the city for the past 20 years. The amount of money spent on policing has nearly doubled in that period and, while crime has also seen a decline, it has remained fairly constant over the last ~10 years or so. 
 
-<img src="figures/nypd_budget.png" width="350"/><img src="figures/nypd_crime_rates.png" width="350"/>
+<p align="center">
+  <img src="figures/nypd_budget.png" width="350"/>
+  <img src="figures/nypd_crime_rates.png" width="350"/>
+</p>
 
-Even for the initial decrease in crime rate, some studies suggest that [mental health programs](https://www.nytimes.com/2018/01/07/us/crime-police.html) or the [legalization of abortion](https://freakonomics.com/2005/05/15/abortion-and-crime-who-should-you-believe/) were the main drivers of that effect. In the end it seems that crime is not a problem you can solve by continued investment on policing. Still, law enforcement is a fundamental part of a functional community. My questions is: **can we use machine learning algorithms to optimize the distribution of resources to prevent crime?**
+Even for the initial period, some studies suggest that [mental health programs](https://www.nytimes.com/2018/01/07/us/crime-police.html) or the [legalization of abortion](https://freakonomics.com/2005/05/15/abortion-and-crime-who-should-you-believe/) were the main drivers of that observed decrease. In the end it seems that crime is not a problem you can solve by continued investment on policing. Still, law enforcement is a fundamental part of a functional community. My questions is: **can we use machine learning algorithms to optimize the distribution of resources to prevent crime?**
 
 
 
@@ -92,7 +99,10 @@ To start, I will take only one precinct as an example (61st). I will try to spat
 1. Geolocation of all the burglaries that happened inside that area during the training period.
 2. Unsupervised clustering (K-Means, k=4) of events using only two features: geographical coordinates and time of day when the crime took place.
 
-<img src="figures/precinct_zoom_black.png" width="400"/><img src="figures/precinct_zoom_clustered.png" width="400"/>
+<p align="center">
+  <img src="figures/precinct_zoom_black.png" width="350"/>
+  <img src="figures/precinct_zoom_clustered.png" width="350"/>
+</p>
 
 3. Once we have our clusters we fit a gaussian KDE to each cluster and extract the contour to define the geographical area.
 
@@ -102,7 +112,10 @@ To start, I will take only one precinct as an example (61st). I will try to spat
 
 4. Having defined our clusters in space, next I looked at the temporal component of each cluster. Using the peak from these distributions (mode) I calculated a vigilance schedule.
 
-<img src="figures/precinct_cluster_times.png" width="400"/><img src="figures/precinct_cluster_schedule.png" width="400"/>
+<p align="center">
+  <img src="figures/precinct_cluster_times.png" width="350"/>
+  <img src="figures/precinct_cluster_schedule.png" width="350"/>
+</p>
 
 5. With these hotspots of criminal activity defined in time and space, we can now score the performance of the algorithm. I input the testing data and, if a crime happens inside of a cluster during its temporal window of activity then it is counted as a hit; if a t crime doesn't meet these two conditions, then it is a miss. How this works can be better visualized in this gif:
 
@@ -125,23 +138,34 @@ To have some form of reference for the accuracy of the model, I also repeated th
 ### Burglaries
 
 <p align="center">
-  <img src="figures/the_real_burglar.png" width="150"/>
   <img src="figures/burglary_final.png" width="500"/>
 </p>
 
 ### Robberies
 
 <p align="center">
-  <img src="figures/robbery-bandit-pngrepo-com.png" width="150"/>
   <img src="figures/robbery_final.png" width="500"/>
 </p>
 
 Regarding burglaries, the global accuracy for **our algorithm was 65%** while it was **37.6% for a random cluster method**. The algorithm performs consistently better than random for the whole testing period. For robberies however, we observe a completely different pattern. In fact, the **random method scores (27.6%)** slightly higher than **our clustering algorithm (23.2%)**.
 
-A possible explanation for this result could be that our clustering is underfitting. After all, we are only introducing two features into the algorithm. Another possibility is this result could be a reflection that crimes of opportunity, such as robberies, are inherently more random and thus much harder to predict.
+A possible explanation for this result could be that our clustering is underfitting. After all, we are only introducing two features into the algorithm (time and space). Another possibility is this result could be a reflection that crimes of opportunity, such as robberies, are inherently more random and thus much harder to predict.
 
 
 
 # Conclusions
 
-- 
+- Crime is a seasonal activity (peaks in summer). This feature facilitates forecasting, even for individual stations.
+- Our algorithm provides a spatial and temporal window that can predict ~65% of burglaries.
+- But what works for some crimes might not be useful for other types. Planned crimes could be more predictable than crimes of opportunity.
+
+
+
+# Future steps and possible applications
+
+- Our model is very likely underfitting. A possible solution would be to include more features.
+- Extend to other crime types, other locations.
+- Optimize parameters of cluster definition (geography and time windows).
+- This type of analysis could be useful for predictive or investigative policing.
+- Security companies (guards, alarms, etc).
+- Insurance companies.
