@@ -88,8 +88,32 @@ In order to make more specific predictions about crime I decided to focus the an
 
 Having selected these two different types of crimes I designed an algorithm that goes as follows.
 
-This is an example of one precinct (61st):
+This is an example of one precinct (61st). I will try to spatio-temporally predict crimes for January 2017 using the two years before as training (Jan 2015 - Dec 2016)
 
 <p align="center">
-  <img src="figures/precinct.png" width="500"/>
+  <img src="figures/precinct.png" width="350"/>
 </p>
+
+1. Geolocation of all the burglaries that happened inside that area during the training period.
+2. Unsupervised clustering (K-Means, k=4) of events using only two features: geographical coordinates and time of day when the crime took place.
+
+<img src="figures/precinct_zoom_black.png" width="400"/><img src="figures/precinct_zoom_clustered.png" width="400"/>
+
+3. Once we have our clusters we fit a gaussian KDE to each cluster and extract the contour to define the geographical area.
+
+<p align="center">
+  <img src="figures/precinct_zoom_clustered_kde_no_scatter.png" width="500"/>
+</p>
+
+4. Having defined our clusters in space, next I looked at the temporal component of each cluster. Using the peak from these distributions (mode) I calculated a vigilance schedule.
+
+<img src="figures/precinct_cluster_times.png" width="400"/><img src="figures/precinct_cluster_schedule.png" width="400"/>
+
+5. With these hotspots of criminal activity defined in time and space, we can now score the performance of the algorithm. I input the testing data and, if a crime happens inside of a cluster during its temporal window of activity then it is counted as a hit; if a t crime doesn't meet these two conditions, then it is a miss. How this works can be better visualized in this gif:
+
+
+
+<p align="center">
+  <img src="figures/scoring.gif" width="600"/>
+</p>
+
