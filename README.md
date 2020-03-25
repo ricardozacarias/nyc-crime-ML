@@ -24,7 +24,7 @@
   
 
 # Abstract
-Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York   City. Next, I applied an unsupervised clustering algorithm to identify hotspots of criminal activity. Clusters were defined geographically and temporally 
+Using data for complaints made to the NYPD, I employed ARIMA models to forecast crime rates in New York   City. Next, I applied an unsupervised clustering algorithm to identify hotspots of criminal activity. Clusters were defined geographically and temporally to suggest areas and schedules for patrolling. I compared the performance of the model with a random baseline model.
 
 
 
